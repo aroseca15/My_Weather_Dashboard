@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="./Assets/style.css"  rel="stylesheet">
+    <!-- Later if JQuery does not work try moving script to below css or at base of body. -->
     <title>My Weather Dashboard</title>
 </head>
+
 <body>
-   <main class="container">
-       
+    <main class="container-fluid">
+
+        <div class="fixed-top">
+            <nav class="navbar navbar-dark bg-dark">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search by city and zip" aria-label="Search">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                    <button type="button" class="btn btn-warning">Poss. clear btn</button>
+                </form>
+                <h1 id="title" class="text-white">Weather Report Dashboard</h1>
+                <br>
+            </nav>
+        </div>
+        <section>
+            <div id="search-input" class="row">
+                <div class="col-md">
+                    <!-- <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search by city and zip" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button type="button" class="btn btn-light">Poss. clear btn</button>
+                    </form> -->
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2></h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>future forecast</h2>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </section>
 
 
 
@@ -19,7 +62,10 @@
 
 
 
-</main> 
-    
+
+
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>
