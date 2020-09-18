@@ -12,6 +12,16 @@ $(document).ready(function(){
 // Local storeage get and store
 
 // On click for save button and clear button
+$('#save-btn').on('click', function(){
+
+});
+
+$('#clear-btn').on('click', function(){
+
+});
+
+
+
 
 /* AJAX call for different cities the tracks and displays the following:
                             current weather(date: mm/dd/yyyy): sunny or other, temp, humidity, uv index, and wind speeds
