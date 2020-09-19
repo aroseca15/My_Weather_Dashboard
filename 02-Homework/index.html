@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="./Assets/style.css"  rel="stylesheet">
+    <link href="./Assets/style.css" rel="stylesheet">
     <!-- Later if JQuery does not work try moving script to below css or at base of body. -->
     <title>My Weather Dashboard</title>
 </head>
@@ -18,7 +18,8 @@
         <div class="fixed-top">
             <nav class="navbar navbar-dark bg-dark">
                 <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search by city and zip" aria-label="Search">
+                    <input id="input" class="form-control mr-sm-2" type="search" placeholder="Search by city and state abrev"
+                        aria-label="Search">
                     <button id="save-btn" class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                     <button id="clear-btn" type="button" class="btn btn-warning">Poss. clear btn</button>
                 </form>
@@ -28,17 +29,25 @@
         </div>
         <section>
             <div id="search-save" class="row">
-                <div class="col-md">
+                <div class="col-md-4">
                     <h1>Saved City Inputs</h1>
+                </div>
+                <div class ="col-md-8">
+                    <h1 class="text-center" id="current-forecast">Current Forecast</h1>
                 </div>
             </div><br>
             <div class="row">
                 <div class="col-lg-8">
-                    
+
                 </div>
-                <div class="row">
+                <!-- <div class="row">
+
                     <div class="col-md-8">
+
                         <h2>Current forecast</h2>
+                        <div> -->
+                            <!-- <h1>Hello World</h1> -->
+                        <!-- </div> -->
                     </div>
 
                 </div>
@@ -58,10 +67,10 @@
 
 
 
-        
+
 
     </main>
-    
+
     <script src="script.js"></script>
 </body>
 

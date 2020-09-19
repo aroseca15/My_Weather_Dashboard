@@ -5,32 +5,73 @@ Rewrite most of html by using JQuery:
 Map out functions needed: 
 Set up local storage:
 */
-let myWeatherKey = 'f67fdb4a68c4728ac9398f3aa4b198ce';
-
-$(document).ready(function(){
-
-// Local storeage get and store
-
-// On click for save button and clear button
-$('#save-btn').on('click', function(){
-
-});
-
-$('#clear-btn').on('click', function(){
-
-});
 
 
 
 
-/* AJAX call for different cities the tracks and displays the following:
-                            current weather(date: mm/dd/yyyy): sunny or other, temp, humidity, uv index, and wind speeds
-                            future(5-day)forecast: sunny or other, temp, humidity*/
-// Find out if the above can be put into a display function
 
-// Loop to add a new row to the far left side of cities researched
 
-// 
+
+let myWeatherKey = 'd162cce18ba9a5542669d67133ba8953';
+// let CurrQueryURL1= 'api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}';
+// let FiveDayQueryURL= 'api.openweathermap.org/data/2.5/forecast?q={city name},{state code}&appid={your api key}';
+
+$(document).ready(function () {
+
+    // Local storeage get function
+    $('form-control mr-sm-2').each(function () {
+        let retrieve = $(this).attr('id');
+        let savedInput = localStorage.getItem(retrieve);
+        $(this).val(savedInput);
+
+    })
+
+
+    // Local Storage save function
+    // $('.save-btn').on('click', function () {
+    //     let value = $(this).parent().siblings('.textarea').children('textarea').val();
+    //     let time = $(this).attr('date-time');
+    //     localStorage.setItem(time, value);
+    // })
+
+    // On click for save button and clear button
+    $('#save-btn').on('click', function () {
+        let inputVal = $("#input").val();
+        currentWeather(inputVal);
+        // let time = $(this).attr('date-time');
+        // localStorage.setItem(time, value);
+    });
+
+    $('#clear-btn').on('click', function () {
+
+    });
+
+
+    function currentWeather() {
+        let queryURL = "api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}"
+            //  + cityName + "&appid=" + myWeatherKey;
+        let currentDate = new Date().toLocaleString();
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            
+        })
+        }
+
+    // currentWeather();
+    /* AJAX call for different cities the tracks and displays the following:
+    
+    
+                                current weather(date: mm/dd/yyyy): sunny or other, temp, humidity, uv index, and wind speeds
+                                future(5-day)forecast: sunny or other, temp, humidity*/
+    // Find out if the above can be put into a display function
+
+    // Loop to add a new row to the far left side of cities researched
+
+    // 
 
 
 
