@@ -30,8 +30,8 @@ $(document).ready(function () {
 
     let fiveDayForecast = $('<div>').addClass('col-md-6').addId('fiveDayForecast');
     fiveDayForecast.text("Your 5 Day Forecast")
-    fiveDayForecast.innerHTML().append('forecasts');
-    container-fluid.append(newRow);
+    fiveDayForecast.appendTo('forecasts');
+    container-fluid.append(fiveDayForecast);
 
 
 
