@@ -7,7 +7,10 @@ Set up local storage:
 */
 
 
+{/* <div  id="current-forecast" class ="col-md-8">
+                    <h1 class="text-center">Current Forecast</h1>
 
+                </div> */}
 
 
 
@@ -18,13 +21,37 @@ let myWeatherKey = 'd162cce18ba9a5542669d67133ba8953';
 
 $(document).ready(function () {
 
-    // Local storeage get function
-    $('form-control mr-sm-2').each(function () {
-        let retrieve = $(this).attr('id');
-        let savedInput = localStorage.getItem(retrieve);
-        $(this).val(savedInput);
+    // let newRow = $('<section>').addClass('row');
+    // let hourCell = $('<div>').addClass('col-2');
+    // hourCell.text(time);
+    // newRow.append(hourCell);
 
-    })
+    // let textAreaCell = $('<div>').addClass('col-8').addClass('textarea');
+    // let textArea = $('<textarea>');
+    // textArea.attr('cols', '85')
+    // textArea.addClass('time-block');
+    // textArea.attr('id', time);
+    // textAreaCell.append(textArea);
+    // newRow.append(textAreaCell);
+
+    // let saveBtnCell = $('<div>').addClass('col-2');
+    // let saveBtn = $('<button>').addClass('save-btn');
+    // saveBtn.attr('date-time', time);
+    // saveBtn.text('save');
+    // saveBtnCell.append(saveBtn);
+    // newRow.append(saveBtnCell);
+    // container.append(newRow);
+
+
+
+
+    // Local storeage get function
+    // $('form-control mr-sm-2').each(function () {
+    //     let retrieve = $(this).attr('id');
+    //     let savedInput = localStorage.getItem(retrieve);
+    //     $(this).val(savedInput);
+
+    // })
 
 
     // Local Storage save function
@@ -47,21 +74,27 @@ $(document).ready(function () {
     });
 
 
-    function currentWeather() {
-        let queryURL = "api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}"
-            //  + cityName + "&appid=" + myWeatherKey;
+    function currentWeather(cityName) {
+        let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
+            
         let currentDate = new Date().toLocaleString();
 
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
+
             console.log(response);
+            // city
+            // temp
+            // wind
+            // humitiy
+            // UV Index
             
         })
         }
 
-    // currentWeather();
+    currentWeather(cityName);
     /* AJAX call for different cities the tracks and displays the following:
     
     
