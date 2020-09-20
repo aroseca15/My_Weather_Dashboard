@@ -7,10 +7,17 @@ Set up local storage:
 */
 
 
-{/* <div  id="current-forecast" class ="col-md-8">
-                    <h1 class="text-center">Current Forecast</h1>
+{/* <section id="forecasts">
+            <div class="row">
+                <div id="current-forecast" class="col-md-6">
+                    <h1>Five Day Forecast</h1>
+                </div>
+                <div class="col-md-6">
+                    <h1>Current Forecast</h1>
+                </div>
+            </div> */}
 
-                </div> */}
+
 
 
 
@@ -21,26 +28,13 @@ let myWeatherKey = 'd162cce18ba9a5542669d67133ba8953';
 
 $(document).ready(function () {
 
-    // let newRow = $('<section>').addClass('row');
-    // let hourCell = $('<div>').addClass('col-2');
-    // hourCell.text(time);
-    // newRow.append(hourCell);
+    let newRow = $('<div>').addClass('row').addId('fiveDayForecast');
+    let fiveDayForecast = $('<div>').addClass('col-6').text('Your 5 Day Forecast');
+    // console.log(fiveDayForecast);
+    // fiveDayForecast.text('Your 5 Day Forecast');
+    newRow.append(fiveDayForecast);
+    container-fluid.append(newRow);
 
-    // let textAreaCell = $('<div>').addClass('col-8').addClass('textarea');
-    // let textArea = $('<textarea>');
-    // textArea.attr('cols', '85')
-    // textArea.addClass('time-block');
-    // textArea.attr('id', time);
-    // textAreaCell.append(textArea);
-    // newRow.append(textAreaCell);
-
-    // let saveBtnCell = $('<div>').addClass('col-2');
-    // let saveBtn = $('<button>').addClass('save-btn');
-    // saveBtn.attr('date-time', time);
-    // saveBtn.text('save');
-    // saveBtnCell.append(saveBtn);
-    // newRow.append(saveBtnCell);
-    // container.append(newRow);
 
 
 
