@@ -6,7 +6,7 @@ Map out functions needed:
 Set up local storage:
 */
 
-
+let containerFluid= $('.container-fluid');
 /* <section id="forecasts">
             <div class="row">
                 <div id="current-forecast" class="col-md-6">
@@ -17,7 +17,10 @@ Set up local storage:
                 </div>
             // </div> */
 
-
+let fiveDayForecast = $('<div>').addClass('col-md-6').addId('fiveDayForecast');
+fiveDayForecast.text("Your 5 Day Forecast");
+fiveDayForecast.appendTo('#forecasts');
+containerFluid.append(fiveDayForecast);
 
 
 
@@ -28,10 +31,10 @@ let myWeatherKey = 'd162cce18ba9a5542669d67133ba8953';
 
 $(document).ready(function () {
 
-    let fiveDayForecast = $('<div>').addClass('col-md-6').addId('fiveDayForecast');
-    fiveDayForecast.text("Your 5 Day Forecast")
-    fiveDayForecast.appendTo('forecasts');
-    container-fluid.append(fiveDayForecast);
+    // let fiveDayForecast = $('<div>').addClass('col-md-6').addId('fiveDayForecast');
+    // fiveDayForecast.text("Your 5 Day Forecast")
+    // fiveDayForecast.appendTo('#forecasts');
+    // container-fluid.append(fiveDayForecast);
 
 
 
@@ -57,8 +60,8 @@ $(document).ready(function () {
     // $('#save-btn').on('click', function () {
     //     let inputVal = $("#input").val();
     //     currentWeather(inputVal);
-        // let time = $(this).attr('date-time');
-        // localStorage.setItem(time, value);
+    // let time = $(this).attr('date-time');
+    // localStorage.setItem(time, value);
     // });
 
     // $('#clear-btn').on('click', function () {
@@ -68,7 +71,7 @@ $(document).ready(function () {
 
     // function currentWeather(cityName) {
     //     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
-            
+
     //     let currentDate = new Date().toLocaleString();
 
     //     $.ajax({
@@ -82,7 +85,7 @@ $(document).ready(function () {
     //         // wind
     //         // humitiy
     //         // UV Index
-            
+
     //     })
     //     }
 
