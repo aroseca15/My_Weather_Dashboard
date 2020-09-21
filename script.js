@@ -140,18 +140,6 @@ $(document).ready(function () {
         }
 
         getFiveDayFore();
-        /* AJAX call for different citiesfiveDayForecast.append($('<h5>').text('humidity:')); the tracks and displays the following:
-        
-        
-                                    current weather(date: mm/dd/yyyy): sunny or other, temp, humidity, uv index, and wind speeds
-                                    future(5-day)forecast: sunny or other, temp, humidity*/
-        // Find out if the above can be put into a display function
-
-        // Loop to add a new row to the far left side of cities researched
-
-        // 
-
-
 
 
 
