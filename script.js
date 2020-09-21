@@ -32,11 +32,16 @@ $(document).ready(function () {
     let fiveDayForecast = $('<div>').addClass('col-md-6');
     fiveDayForecast.append($('<h1>').text('5 Day Forecast'));
     fiveDayForecast.append($('<div>').attr('id', 'day1').addClass('row'));
-    $('<h3>').appendTo('#day1')
+    fiveDayForecast.append($('<h5>').text('humidity:'));
+    fiveDayForecast.append($('<h5>').text('Temp:'));
     fiveDayForecast.append($('<div>').attr('id', 'day2').addClass('row'));
+    fiveDayForecast.append($('<h5>').text('humidity:'));
     fiveDayForecast.append($('<div>').attr('id', 'day3').addClass('row'));
+    fiveDayForecast.append($('<h5>').text('humidity:'));
     fiveDayForecast.append($('<div>').attr('id', 'day4').addClass('row'));
+    fiveDayForecast.append($('<h5>').text('humidity:'));
     fiveDayForecast.append($('<div>').attr('id', 'day5').addClass('row'));
+    fiveDayForecast.append($('<h5>').text('humidity:'));
 
 
 
@@ -64,23 +69,21 @@ $(document).ready(function () {
 
 
         // Local Storage save function
-        // $('.save-btn').on('click', function () {
-        //     let value = $(this).parent().siblings('.textarea').children('textarea').val();
-        //     let time = $(this).attr('date-time');
-        //     localStorage.setItem(time, value);
-        // })
+        
 
         // On click for save button and clear button
         $('#save-btn').on('click', function () {
             let inputVal = $("#input").val();
             currentWeather(inputVal);
         let time = $(this).attr('date-time');
+        JSON.stringify(inputVal);
         localStorage.setItem(time, value);
 
         $('#input').change(function(){
             let inputVal = $("#input").val();
             currentWeather(inputVal);
         let time = $(this).attr('date-time');
+        JSON.stringify(inputVal);
         localStorage.setItem(time, value);
         })
         });
@@ -90,29 +93,30 @@ $(document).ready(function () {
 
         // });
 
-
-        // function currentWeather(cityName) {
-        //     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
-
-        //     let currentDate = new Date().toLocaleString();
-
-        //     $.ajax({
-        //         url: queryURL,
-        //         method: "GET"
-        //     }).then(function (response) {
-
-        //         console.log(response);
-        //         // city
-        //         // temp
-        //         // wind
-        //         // humitiy
-        //         // UV Index
-
-        //     })
-        //     }
+        
+        function currentWeather(cityName) {
+            let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
             
-        // currentWeather();
-        /* AJAX call for different cities the tracks and displays the following:
+            // let currentDate = new Date().toLocaleString();
+            // let cityName= 'city name'
+            // let cityName= inputVal.stringify()
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+
+                console.log(response);
+                // city
+                // temp
+                // wind
+                // humitiy
+                // UV Index
+
+            })
+            }
+            
+        currentWeather(cityName);
+        /* AJAX call for different citiesfiveDayForecast.append($('<h5>').text('humidity:')); the tracks and displays the following:
         
         
                                     current weather(date: mm/dd/yyyy): sunny or other, temp, humidity, uv index, and wind speeds
