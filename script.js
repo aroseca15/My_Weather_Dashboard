@@ -18,7 +18,11 @@ Set up local storage:
                 </div>
             // </div> */
 
-
+let day1= $('<div>').attr('id','day1').addClass('row');
+let day2= $('<div>').attr('id','day2').addClass('row');
+let day3= $('<div>').attr('id','day3').addClass('row');
+let day4= $('<div>').attr('id','day4').addClass('row');
+let day5= $('<div>').attr('id','day5').addClass('row');
 
 
 
@@ -32,16 +36,20 @@ $(document).ready(function () {
     let fiveDayForecast = $('<div>').addClass('col-md-6');
     fiveDayForecast.append($('<h1>').text('5 Day Forecast'));
     fiveDayForecast.append($('<div>').attr('id', 'day1').addClass('row'));
-    fiveDayForecast.append($('<h5>').text('humidity:'));
-    fiveDayForecast.append($('<h5>').text('Temp:'));
+    // fiveDayForecast.append($('<h5>').text('Temp:'));
+    // fiveDayForecast.append($('<h5>').text('humidity'));
     fiveDayForecast.append($('<div>').attr('id', 'day2').addClass('row'));
-    fiveDayForecast.append($('<h5>').text('humidity:'));
+    // fiveDayForecast.append($('<h5>').text('Temp:'));
+    // fiveDayForecast.append($('<h5>').text('humidity'));
     fiveDayForecast.append($('<div>').attr('id', 'day3').addClass('row'));
-    fiveDayForecast.append($('<h5>').text('humidity:'));
+    // fiveDayForecast.append($('<h5>').text('Temp:'));
+    // fiveDayForecast.append($('<h5>').text('humidity'));
     fiveDayForecast.append($('<div>').attr('id', 'day4').addClass('row'));
-    fiveDayForecast.append($('<h5>').text('humidity:'));
+    // fiveDayForecast.append($('<h5>').text('Temp:'));
+    // fiveDayForecast.append($('<h5>').text('humidity'));
     fiveDayForecast.append($('<div>').attr('id', 'day5').addClass('row'));
-    fiveDayForecast.append($('<h5>').text('humidity:'));
+    // fiveDayForecast.append($('<h5>').text('Temp:'));
+    // fiveDayForecast.append($('<h5>').text('humidity'));
 
 
 
@@ -116,6 +124,22 @@ $(document).ready(function () {
             }
             
         currentWeather(cityName);
+
+
+        function getFiveDayFore(){
+            let queryURL=`https://api.openweathermap.org/data/2.5/forecast?q=${inputVal}&appid=${myWeatherKey}`
+            $.ajax({
+
+                URL: queryURL,
+                method: 'GET' 
+
+            }).then(function(response){
+                console.log(response)
+            })
+
+        }
+
+        getFiveDayFore();
         /* AJAX call for different citiesfiveDayForecast.append($('<h5>').text('humidity:')); the tracks and displays the following:
         
         
