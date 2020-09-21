@@ -126,7 +126,7 @@ $(document).ready(function () {
         currentWeather(cityName);
 
 
-        function getFiveDayFore(){
+        function getFiveDayFore(inputVal){
             let queryURL=`https://api.openweathermap.org/data/2.5/forecast?q=${inputVal}&appid=${myWeatherKey}`
             $.ajax({
 
