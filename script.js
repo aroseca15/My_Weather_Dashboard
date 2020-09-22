@@ -1,20 +1,8 @@
-/* To Do list:
-Start a basic html with some css: Started
-Research more effic. ways...:
-Rewrite most of html by using JQuery:
-Map out functions needed: 
-Set up local storage:
-*/
-
-// let containerFluid = $('.container-fluid');
 
 
-// let day1= $('<div>').attr('id','day1').addClass('row');
-// let day2= $('<div>').attr('id','day2').addClass('row');
-// let day3= $('<div>').attr('id','day3').addClass('row');
-// let day4= $('<div>').attr('id','day4').addClass('row');
-// let day5= $('<div>').attr('id','day5').addClass('row');
-// $('#forecasts').append(day1, day2, day3, day4, day5);
+
+
+
 
 
 
@@ -24,28 +12,13 @@ Set up local storage:
 
 $(document).ready(function () {
 
-        let fiveDayForecast = $('<div>').addClass('col-md-6');
-        fiveDayForecast.append($('<h1>').text('5 Day Forecast'));
-        fiveDayForecast.append($('<div>').attr('id', 'day1').addClass('row'));
-        $('<h3> Temp: </h3>').appendTo('#day1')
-        $('#day1').html('<h5>Temp: </h5>');
-        // fiveDayForecast.append($('<h5>').text('humidity'));
-        fiveDayForecast.append($('<div>').attr('id', 'day2').addClass('row'));
-        // fiveDayForecast.append($('<h5>').text('Temp:'));
-        // fiveDayForecast.append($('<h5>').text('humidity'));
-        fiveDayForecast.append($('<div>').attr('id', 'day3').addClass('row'));
-        // fiveDayForecast.append($('<h5>').text('Temp:'));
-        // fiveDayForecast.append($('<h5>').text('humidity'));
-        fiveDayForecast.append($('<div>').attr('id', 'day4').addClass('row'));
-        // fiveDayForecast.append($('<h5>').text('Temp:'));
-        // fiveDayForecast.append($('<h5>').text('humidity'));
-        fiveDayForecast.append($('<div>').attr('id', 'day5').addClass('row'));
-        // fiveDayForecast.append($('<h5>').text('Temp:'));
-        // fiveDayForecast.append($('<h5>').text('humidity'));
+let text1= 'Conditions: '
+let text2= 'Temp: '
+let text3= 'Humidity: '
+$('.card-title').append(text1);
+$('.card-subtitle').append(text2);
+$('.card-text').append(text3);
 
-
-        
-        $('#forecasts').append(fiveDayForecast);
 
         let currentForecast = $('<div>').addClass('col-md-6');
         currentForecast.append($('<h1>').text('Current Forecast'));
@@ -73,6 +46,7 @@ $(document).ready(function () {
 
     // On click for save button and clear button
     $('#save-btn').on('click', function () {
+        event.preventDefault()
         let inputVal = $("#input").val();
         currentWeather(inputVal);
         // let time = $(this).attr('date-time');
@@ -80,61 +54,55 @@ $(document).ready(function () {
         localStorage.setItem('city', inputVal);
         console.log(inputVal);
 
-        // $('#input').change(function () {
-        //     let inputVal = $("#input").val();
-        //     currentWeather(inputVal);
-        //     let time = $(this).attr('date-time');
-        //     JSON.stringify(inputVal);
-        //     event.preventDefault()
-        //     localStorage.setItem(value);
-        // })
+        $('#input').change(function () {
+            let inputVal = $("#input").val();
+            event.preventDefault()
+            currentWeather(inputVal);
+            let time = $(this).attr('date-time');
+            JSON.stringify(inputVal);
+            localStorage.setItem(value);
+        })
     });
 
 
-    // $('#clear-btn').on('click', function () {
-    //     let inputVal = $("#input").val();
-    //     localStorage.clear(inputVal);
-    // });
+    function currentWeather(cityName) {
+        let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
+
+        // let currentDate = new Date().toLocaleString();
+        // let cityName= 'city name'
+        // let cityName= inputVal.stringify()
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+
+            console.log(response);
+            // city
+            // temp
+            // wind
+            // humitiy
+            // UV Index
+
+        })
+        }
+
+    currentWeather(cityName);
 
 
-    // function currentWeather(cityName) {
-    //     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
+    function getFiveDayFore(inputVal){
+        let queryURL=`https://api.openweathermap.org/data/2.5/forecast?q=${inputVal}&appid=${myWeatherKey}`
+        $.ajax({
 
-    //     // let currentDate = new Date().toLocaleString();
-    //     // let cityName= 'city name'
-    //     // let cityName= inputVal.stringify()
-    //     $.ajax({
-    //         url: queryURL,
-    //         method: "GET"
-    //     }).then(function (response) {
+            URL: queryURL,
+            method: 'GET' 
 
-    //         console.log(response);
-    //         // city
-    //         // temp
-    //         // wind
-    //         // humitiy
-    //         // UV Index
+        }).then(function(response){
+            console.log(response)
+        })
 
-    //     })
-    //     }
+    }
 
-    // currentWeather(cityName);
-
-
-    // function getFiveDayFore(inputVal){
-    //     let queryURL=`https://api.openweathermap.org/data/2.5/forecast?q=${inputVal}&appid=${myWeatherKey}`
-    //     $.ajax({
-
-    //         URL: queryURL,
-    //         method: 'GET' 
-
-    //     }).then(function(response){
-    //         console.log(response)
-    //     })
-
-    // }
-
-    // getFiveDayFore();
+    getFiveDayFore();
 
 
 
