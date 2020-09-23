@@ -2,84 +2,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="./Assets/style.css" rel="stylesheet">
-    <!-- Later if JQuery does not work try moving script to below css or at base of body. -->
-    <title>My Weather Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="./Assets/style.css" rel="stylesheet">
+  <!-- Later if JQuery does not work try moving script to below css or at base of body. -->
+  <title>My Weather Dashboard</title>
 </head>
 
 <body>
-    <main class="container-fluid">
+  <main class="container-fluid">
 
-        <div class="fixed-top">
-            <nav id="navbar" class="navbar navbar-dark bg-dark">
-                <form class="form-inline">
-                    <input id="input" class="form-control mr-sm-2" type="search" placeholder="Search by city"
-                        aria-label="Search">
-                    <button id="save-btn" class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-                </form>
-                <h1 id="title" class="text-white">Weather Report Dashboard</h1>
-                <br>
-            </nav>
-        </div><br><br>
-
-
-
+    <div class="fixed-top">
+      <nav id="navbar" class="navbar navbar-dark bg-dark">
+        <form class="form-inline">
+          <input id="input" class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
+          <button id="save-btn" class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <h1 id="title" class="text-white">Weather Report Dashboard</h1>
         <br>
-        <section id="forecasts" class="row">
-            <div class="col-md-6">
-                <h1>5 Day Forecast</h1>
-                <div id="day1" class="row">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title1">Conditions</h5>
-                          <h6 class="card-subtitle mb-2 text-muted"></h6>
-                          <p class="card-text1">Humidity</p>
-                        </div>
-                      </div>
-                </div>
-                <div id="day2" class="row"><div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <h6 class="card-subtitle mb-2 text-muted"></h6>
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-                </div>
-                <div id="day3" class="row">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title"></h5>
-                          <h6 class="card-subtitle mb-2 text-muted"></h6>
-                          <p class="card-text"></p>
-                        </div>
-                      </div>
-                </div>
-                <div id="day4" class="row">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title"></h5>
-                          <h6 class="card-subtitle mb-2 text-muted"></h6>
-                          <p class="card-text"></p>
-                        </div>
-                      </div>
-                </div>
-                <div id="day5" class="row">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title"></h5>
-                          <h6 class="card-subtitle mb-2 text-muted"></h6>
-                          <p class="card-text"></p>
-                        </div>
-                      </div>
-                </div>
+      </nav>
+    </div><br><br>
+
+
+
+    <br>
+    <section id="forecasts" class="row">
+      <div id="five-day" class="col-md-6">
+        <h1>5 Day Forecast</h1>
+        <div id="day1" class="row">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 id="day1-date" class="card-title">Date</h5>
+              <p id="day1-conditions">icon</p>
+              <h6 class="card-subtitle mb-2 text-muted">Temp: <span id="day1-temp"></span></h6>
+              <p class="card-text">Humidity: <span id="day1-humidity"></span></p>
             </div>
+          </div>
+        </div>
+        <div id="day2" class="row">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 id="day2-date" class="card-title">Date</h5>
+              <p id="day2-conditions">icon</p>
+              <h6 class="card-subtitle mb-2 text-muted">Temp: <span id="day2-temp"></span></h6>
+              <p class="card-text">Humidity: <span id="day2-humidity"></span></p>
+            </div>
+          </div>
+        </div>
+        <div id="day3" class="row">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 id="day3-date" class="card-title">Date</h5>
+              <p id="day3-conditions">icon</p>
+              <h6 class="card-subtitle mb-2 text-muted">Temp: <span id="day3-temp"></span></h6>
+              <p class="card-text">Humidity: <span id="day3-humidity"></span></p>
+            </div>
+          </div>
+        </div>
+        <div id="day4" class="row">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 id="day4-date"  class="card-title">Date</h5>
+              <p id="day4-conditions">icon</p>
+              <h6 class="card-subtitle mb-2 text-muted">Temp: <span id="day4-temp"></span></h6>
+              <p class="card-text">Humidity: <span id="day4-humidity"></span></p>
+            </div>
+          </div>
+        </div>
+        <div id="day5" class="row">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 id="day-5 date" class="card-title">Date</h5>
+              <p id="day5-conditions">icon</p>
+              <h6 class="card-subtitle mb-2 text-muted">Temp: <span id="day5-temp"></span></h6>
+              <p class="card-text">Humidity: <span id="day5-humidity"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        </section>
+      <div id="current" class="col-md-6">
+        <h1>Current Forecast</h1>
+        <div class="card">
+          <div class="card-body">
+            <p>City: <span id="current-city"></span></p>
+            <p>Date: <span id="current-date"></span></p>
+            <p>Temperature: <span id="current-temp"></span></p>
+            <p>Humidity: <span id="current-humidity"></span></p>
+            <p>Wind Speeds: <span id="current-windSpeeds"></span></p><br>
+            <p>UV Index: <span id="current-uv"></span></p>
+          </div>
+        </div>
+        <div class="row">
+          <span id="history"></span>
+
+        </div>
+      </div>
+
+
+    </section>
 
 
 
@@ -92,9 +116,9 @@
 
 
 
-    </main>
+  </main>
 
-    <script src="./script.js"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>
