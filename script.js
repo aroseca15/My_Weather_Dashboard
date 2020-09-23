@@ -6,6 +6,7 @@ let currentDateDis= $('#current-date');
 let currentTemp= $('#current-temp');
 let currentWind= $('#current-windSpeeds');
 let currentUv= $('#current-uv');
+let currentH= $('#current-humidity');
 
 // 5 day forecast:
 
@@ -81,6 +82,7 @@ $(document).ready(function () {
     });
 
     let myWeatherKey = 'd162cce18ba9a5542669d67133ba8953';
+    let tempF = (response.main.temp - 273.15) * 1.80 + 32;
     function currentWeather(cityName) {
         let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
 
@@ -93,13 +95,14 @@ $(document).ready(function () {
         }).then(function (response) {
 
             console.log(response);
-            currentDate.html(currentDateDis);
-            // city
-            // temp
-            // wind
-            // humitiy
-            // UV Index
-
+            // currentDateDis.html(response.currentDate);
+            $('#current-city').text(response.name)
+            $('#current-date').text(response.currentDate)
+            $('#current-temp').text(response.main.temp + tempF)
+            $('#current-humidity').text(response.main.humidity + '%')
+            $('#current-windSpeeds').text(response.wind.speed)
+            $('#current-uv').text(response.coord)
+            
         })
         }
 // This function returns the UVIindex response.
@@ -111,7 +114,7 @@ function UVIndex(currentCity){
             url:queryURL,
             method:"GET"
             }).then(function(response){
-                $(currentUv).html(response.value);
+                $(currentUv).html(response.coord);
                 console.log(response.value);
             });
 }
