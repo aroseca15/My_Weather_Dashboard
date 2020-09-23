@@ -1,6 +1,7 @@
 let storedCity= '';
 // current weather:
-let currentCity= $('#current-city'); 
+let currentCity= $('#current-city').inputVal;
+let inputVal = $("#input").val();
 let currentDateDis= $('#current-date');
 let currentTemp= $('#current-temp');
 let currentWind= $('#current-windSpeeds');
@@ -111,6 +112,7 @@ function UVIndex(currentCity){
             method:"GET"
             }).then(function(response){
                 $(currentUv).html(response.value);
+                console.log(response.value);
             });
 }
 UVIndex();
