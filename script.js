@@ -101,7 +101,19 @@ $(document).ready(function () {
 
         })
         }
-
+// This function returns the UVIindex response.
+function UVIndex(currentCity){
+    
+    //lets build the url for uvindex.
+    var queryURL=`https://api.openweathermap.org/data/2.5/uvi?lat=${currentCity}&lon=${currentCity}&appid=${myWeatherKey}`
+    $.ajax({
+            url:queryURL,
+            method:"GET"
+            }).then(function(response){
+                $(currentUv).html(response.value);
+            });
+}
+UVIndex();
 
     function getFiveDayFore(inputVal){
         let queryURL=`https://api.openweathermap.org/data/2.5/forecast?q=${inputVal}&appid=${myWeatherKey}`
