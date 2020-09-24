@@ -83,6 +83,7 @@ $(document).ready(function () {
 
     let myWeatherKey = 'd162cce18ba9a5542669d67133ba8953';
     let tempF = (response.main.temp - 273.15) * 1.80 + 32;
+    let speedPH = (response.wind.speed * 2.237)
     function currentWeather(cityName) {
         let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${myWeatherKey}`
 
@@ -96,26 +97,28 @@ $(document).ready(function () {
 
             console.log(response);
             // currentDateDis.html(response.currentDate);
+            let tempF = (response.main.temp - 273.15) * 1.80 + 32;
             $('#current-city').text(response.name)
-            $('#current-date').text(response.currentDate)
-            $('#current-temp').text(response.main.temp + tempF)
+            $('#current-date').text(currentDate)
+            $('#current-temp').text(tempF + 'F');
             $('#current-humidity').text(response.main.humidity + '%')
             $('#current-windSpeeds').text(response.wind.speed)
-            $('#current-uv').text(response.coord)
+            $('#icon').append(`<img src= https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png>`)
+            
             
         })
         }
-// This function returns the UVIindex response.
-function UVIndex(currentCity){
+// UV index:
+function UVIndex(){
     
     //lets build the url for uvindex.
-    var queryURL=`https://api.openweathermap.org/data/2.5/uvi?lat=${currentCity}&lon=${currentCity}&appid=${myWeatherKey}`
+    var queryURL=`http://api.openweathermap.org/data/2.5/uvi?lat={lat}&lon={lon}&appid=${myWeatherKey}`
     $.ajax({
             url:queryURL,
             method:"GET"
             }).then(function(response){
-                $(currentUv).html(response.coord);
-                console.log(response.value);
+                $('#current-uv').text(response.coord.lon, response.coord.lat);
+                console.log(response);
             });
 }
 UVIndex();
@@ -128,13 +131,20 @@ UVIndex();
             method: 'GET' 
 
         }).then(function(response){
+            for (let i = 0; i< 5; i++ ) {
+                $('#dayF-date').text(response.currentDate)
+                $('#dayF-conditions').append(`<img src= https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png>`)
+            $('#dayF-temp').text(response.main.temp)
+            $('#dayF-humidity').text(response.main.humidity + '%')
+                
+            }
             console.log(response)
         })
 
     }
 
 
-
+    response.list.length; i = i+8
 
 
 
